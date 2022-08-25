@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.event {
+    background-color: #f1f1f1;
+    max-width: 200px;
+    margin-left: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+}
+
+.event-name {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 2px 0;
+}
