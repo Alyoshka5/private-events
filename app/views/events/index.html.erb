@@ -3,6 +3,8 @@
 
 <% if user_signed_in? %>
     <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+    <p>Signed in as <%= current_user.username %></p>
+    <%= link_to "Create event", new_event_path %>
 <% else %>
     <%= link_to "Sign Up", new_user_registration_path %>
     <%= link_to "Log In", new_user_session_path %>
@@ -12,12 +14,12 @@
 
 <% @events.each do |event| %>
     <div class="event">
-        <p class="event-name"><%= event.name %></p>
-        Date: <%= event.date %></br>
-        Location: <%= event.location %>
+        <%= link_to event.name, event_path(event), class: "event-name" %>
+        <p>Event created by <%= link_to "@" + event.creator.username, event.creator %></p>
     </div>
 <% end %>
 
+<h1>Users</h1>
 <% @users.each do |user| %>
-    <%= link_to user.username, user %>
+    <p class="user-name"><%= link_to user.username, user %></p>
 <% end %>
