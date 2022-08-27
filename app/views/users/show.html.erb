@@ -9,3 +9,11 @@
 <% end %>
 
 <%= link_to "All Events", root_path %>
+
+<h3>Attended Events</h3>
+<% @user.attended_events.each do |event| %>
+    <div class="event">
+        <%= link_to event.name, event_path(event), class: "event-name" %>
+        <p>Event created by <%= link_to "@" + event.creator.username, event.creator %></p>
+    </div>
+<% end %>
