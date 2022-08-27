@@ -2,7 +2,7 @@
 
 <% @events.each do |event| %>
     <div class="event">
-        <p class="event-name"><%= event.name %></p>
+        <p class="event-name"><%= link_to event.name, event_path(event), class: "event-name" %></p>
         Date: <%= event.date %></br>
         Location: <%= event.location %>
     </div>

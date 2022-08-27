@@ -3,4 +3,12 @@
 <p>Date: <%= @event.date %></p>
 <p>Location: <%= @event.location %></p>
 
+<% if user_signed_in? && @event.creator != current_user %>
+    <% if @event.attendees.where(id: current_user.id).any? %>
+        <p><%= link_to "Unattend Event", events_remove_attendee_path, class: "attend-event-button" %></p>
+    <% else %>
+        <p><%= link_to "Attend Event", events_add_attendee_path, class: "attend-event-button" %></p>
+    <% end %>
+<% end %>
+
 <%= link_to "Back to Events", root_path %>

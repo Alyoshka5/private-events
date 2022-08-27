@@ -38,3 +38,13 @@
 .user-name {
     margin: 5px;
 }
+
+.attend-event-button {
+    color: #000;
+    background-color: rgb(241, 241, 241);
+    text-decoration: none;
+    padding: 3px;
+    margin-bottom: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
