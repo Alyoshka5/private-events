@@ -1,5 +1,5 @@
 <h1><%= @event.name %></h1>
-<h3>Created by @<%= @event.creator.username %></h3>
+<h3>Created by <%= @event.creator.username %></h3>
 <p>Date: <%= @event.date %></p>
 <p>Location: <%= @event.location %></p>
 
@@ -12,3 +12,10 @@
 <% end %>
 
 <%= link_to "Back to Events", root_path %>
+
+<h3>Event Attendees</h3>
+<ul>
+    <% @event.attendees.each do |attendee| %>
+        <li><%= attendee.username %></li>
+    <% end %>
+</ul>
