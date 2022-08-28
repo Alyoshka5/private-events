@@ -1,4 +1,4 @@
-# Priavte Events
+# Private Events
 
 Web application that allows users to create and attend events
 
