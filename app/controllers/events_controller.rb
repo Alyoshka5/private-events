@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :add_attendee]
+    before_action :authenticate_user!, except: [ :index, :show ]
 
     def index
         @events = Event.all
@@ -22,6 +22,15 @@ class EventsController < ApplicationController
         else
             render :new, status: :unprocessable_entity
         end
+    end
+
+    def destroy
+        @event = Event.find(params[:id])
+        @event.destroy
+
+        AttendeeAttendedEvent.where(attended_event_id: @event.id).destroy_all
+
+        redirect_to root_path, status: :see_other
     end
 
     def add_attendee
