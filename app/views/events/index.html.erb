@@ -12,7 +12,16 @@
 
 <h1>Events</h1>
 
-<% @events.each do |event| %>
+<h3>Upcoming Events</h3>
+<% Event.upcoming_events.each do |event| %>
+    <div class="event">
+        <%= link_to event.name, event_path(event), class: "event-name" %>
+        <p>Event created by <%= link_to "@" + event.creator.username, event.creator %></p>
+    </div>
+<% end %>
+
+<h3>Past Events</h3>
+<% Event.past_events.each do |event| %>
     <div class="event">
         <%= link_to event.name, event_path(event), class: "event-name" %>
         <p>Event created by <%= link_to "@" + event.creator.username, event.creator %></p>
