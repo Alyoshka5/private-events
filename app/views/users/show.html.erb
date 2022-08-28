@@ -3,17 +3,12 @@
 <% @events.each do |event| %>
     <div class="event">
         <p class="event-name"><%= link_to event.name, event_path(event), class: "event-name" %></p>
-        Date: <%= event.date %></br>
+        Date: <%= event.date.strftime("%a, %b %d %Y") %></br>
         Location: <%= event.location %>
     </div>
 <% end %>
 
 <%= link_to "All Events", root_path %>
 
-<h3>Attended Events</h3>
-<% @user.attended_events.each do |event| %>
-    <div class="event">
-        <%= link_to event.name, event_path(event), class: "event-name" %>
-        <p>Event created by <%= link_to "@" + event.creator.username, event.creator %></p>
-    </div>
-<% end %>
+<h2>Attended Events</h2>
+<%= render "attended_events", locals: { user: @user } %>

@@ -1,0 +1,29 @@
+<% if @user.attended_events.where('date = ?', Date.today).any? %>
+    <h4>Today's Events</h4>
+    <% @user.attended_events.where('date = ?', Date.today).each do |event| %>
+        <div class="event">
+            <%= link_to event.name, event_path(event), class: "event-name" %>
+            <p>Event created by <%= link_to "@" + event.creator.username, event.creator %></p>
+        </div>
+    <% end %>
+<% end %>
+
+<% if @user.attended_events.where('date > ?', Date.today).any? %>
+    <h4>Future Events</h4>
+    <% @user.attended_events.where('date > ?', Date.today).each do |event| %>
+        <div class="event">
+            <%= link_to event.name, event_path(event), class: "event-name" %>
+            <p>Event created by <%= link_to "@" + event.creator.username, event.creator %></p>
+        </div>
+    <% end %>
+<% end %>
+
+<% if @user.attended_events.where('date < ?', Date.today).any? %>
+    <h4>Past Events</h4>
+    <% @user.attended_events.where('date < ?', Date.today).each do |event| %>
+        <div class="event">
+            <%= link_to event.name, event_path(event), class: "event-name" %>
+            <p>Event created by <%= link_to "@" + event.creator.username, event.creator %></p>
+        </div>
+    <% end %>
+<% end %>

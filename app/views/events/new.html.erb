@@ -11,7 +11,7 @@
     
     <div class="form-field">
         <%= form.label :date %>
-        <%= form.text_field :date %>
+        <%= form.date_field :date %>
         <% if @event.errors.full_messages_for(:date).any? %>
             <% @event.errors.full_messages_for(:date).each do |message| %>
                 <div><%= message %></div>

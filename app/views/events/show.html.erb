@@ -1,6 +1,6 @@
 <h1><%= @event.name %></h1>
 <h3>Created by <%= link_to @event.creator.username, @event.creator %></h3>
-<p>Date: <%= @event.date %></p>
+<p>Date: <%= @event.date.strftime("%a, %b %d %Y") %></p>
 <p>Location: <%= @event.location %></p>
 
 <% if user_signed_in? && @event.creator != current_user %>
