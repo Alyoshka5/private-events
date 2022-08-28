@@ -48,3 +48,38 @@
     border: 2px solid #000;
     border-radius: 5px;
 }
+
+a, button {
+    color: #00007a;
+    text-decoration: none;
+}
+
+.nav-list {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-list li {
+    margin: 0 10px;
+}
+
+.nav-list a, .nav-list button {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    transition: ease-in 0.12s;
+}
+
+.nav-list a:hover, .nav-list button:hover {
+    color: #6161e4;
+    transition: ease-in 0.12s;
+}
+
+.log-out {
+    background-color: #ff000000;
+    padding: 0;
+    border: none;
+}
+.log-out:hover {
+    cursor: pointer;
+}
